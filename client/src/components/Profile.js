@@ -106,7 +106,13 @@ const Profile = ({ t }) => {
 						mb: 2,
 					}}
 				>
-					<Box sx={{ width: '100%', minWidth: '50px', maxWidth: '200px', display: 'inline-block' }}>
+					<Box
+						sx={{
+							width: '100%',
+							minWidth: '50px',
+							maxWidth: '200px',
+						}}
+					>
 						<AspectRatio ratio={1}>
 							<Avatar
 								src={profile_pic}
@@ -114,14 +120,6 @@ const Profile = ({ t }) => {
 								style={profilePictureStyle}
 							/>
 						</AspectRatio>
-					</Box>
-					<Box sx={{ width: 'fit-content', ml: 5 }}>
-						<Typography variant="h2" sx={{ fontSize: '250%', whiteSpace: 'pre-line',
-							overflowWrap: 'break-word',
-							wordWrap: 'break-word',
-							hyphens: 'auto', }}>
-							{profileData.username}
-						</Typography>
 					</Box>
 				</Grid>
 				<Container
@@ -132,17 +130,21 @@ const Profile = ({ t }) => {
 						alignItems: 'center',
 					}}
 				>
-					<h4 style={{ color: '#6A5ACD' }}>{t('profile.1')}</h4>
-					<Typography
-						style={{
-							whiteSpace: 'pre-line',
-							overflowWrap: 'break-word',
-							wordWrap: 'break-word',
-							hyphens: 'auto',
-						}}
-					>
-						{profileData.firstname}
-					</Typography>
+					<Box>
+						<Typography
+							variant="h2"
+							sx={{
+								textTransform: 'uppercase',
+								fontSize: '250%',
+								whiteSpace: 'pre-line',
+								overflowWrap: 'break-word',
+								wordWrap: 'break-word',
+								hyphens: 'auto',
+							}}
+						>
+							{profileData.username}
+						</Typography>
+					</Box>
 					<br />
 					<h4 style={{ color: '#6A5ACD' }}>{t('profile.2')}</h4>
 					<Typography
@@ -153,7 +155,7 @@ const Profile = ({ t }) => {
 							hyphens: 'auto',
 						}}
 					>
-						{profileData.lastname}
+						{profileData.firstname} {profileData.lastname}
 					</Typography>
 					<br />
 					<h4 style={{ color: '#6A5ACD' }}>{t('profile.3')}</h4>

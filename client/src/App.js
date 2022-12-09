@@ -28,7 +28,6 @@ import MoviePage from './components/MoviePage';
 import Frontpage from './components/Frontpage';
 import Footer from './components/Footer';
 import { useTranslation } from 'react-i18next';
-import Button from '@mui/material/Button';
 import profileService from './services/profileService';
 import { changeSeverity } from './reducers/severityReducer';
 import { changeNotification } from './reducers/notificationReducer';

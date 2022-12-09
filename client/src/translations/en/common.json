@@ -28,12 +28,11 @@
 	},
 	"profile": {
 		"0": "The maximum size for uploaded images is 5 megabytes.",
-		"1": "First name",
-		"2": "Last name",
+		"2": "Full name",
 		"3": "E-mail",
 		"4": "Edit profile",
 		"5": "Set profile picture",
-		"6": "Change passwords",
+		"6": "Change password",
 		"7": "Delete user",
 		"8": "Profile picture set!",
 		"10": "Watched movies"
