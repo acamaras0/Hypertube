@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+.animation {
+    width: 3vw;
+    height: 3vw;
+    background-color: linear-gradient(-225deg, #FF3CAC 0%, #562B7C 52%, #2B86C5 100%);
+    position: relative;
+    animation-name: square;  
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes square {
+    0%   {background-color:rgb(200, 0, 255); left:0px; top:0px;}
+    25%  {background-color:rgb(149, 84, 198); left:700px; top:0px;}
+    50%  {background-color:#2B86C5; left: 700px; top:700px;}
+    75%  {background-color:rgb(255, 255, 255); left:-700px; top:700px;}
+    100% {background-color:#FF3CAC(211, 40, 177); left:-700px; top:0px;}
+  }
