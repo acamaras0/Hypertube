@@ -108,37 +108,11 @@ const App = () => {
 			<Suspense fallback="loading">
 				<Router>
 					<RedirectPage />
-
-					<Button
-						value={'ro'}
-						variant={language === 'ro' ? 'contained' : 'text'}
-						onClick={handleLanguage}
-					>
-						🇷🇴
-					</Button>
-					<Button
-						value={'en'}
-						variant={language === 'en' ? 'contained' : 'text'}
-						onClick={handleLanguage}
-					>
-						🇬🇧
-					</Button>
-					<Button
-						value={'fi'}
-						variant={language === 'fi' ? 'contained' : 'text'}
-						onClick={handleLanguage}
-					>
-						🇫🇮
-					</Button>
-					<Button
-						value={'hu'}
-						variant={language === 'hu' ? 'contained' : 'text'}
-						onClick={handleLanguage}
-					>
-						🇭🇺
-					</Button>
-
-					<NavBar t={t} />
+					<NavBar
+						t={t}
+						handleLanguage={handleLanguage}
+						language={language}
+					/>
 					<Routes>
 						<Route path="/" element={<Frontpage t={t} />} />
 						<Route path="/login" element={<Login t={t} />} />

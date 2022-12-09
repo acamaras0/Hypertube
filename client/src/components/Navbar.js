@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { createTheme } from "@mui/material/styles";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { createTheme } from '@mui/material/styles';
 import {
 	AppBar,
 	Container,
@@ -10,43 +10,43 @@ import {
 	Menu,
 	MenuItem,
 	Button,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useSelector } from "react-redux";
-import { ReactComponent as Logo } from "../images/logo.svg";
-import UserMenu from "./navbar/UserMenu";
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useSelector } from 'react-redux';
+import { ReactComponent as Logo } from '../images/logo.svg';
+import UserMenu from './navbar/UserMenu';
 
 const navbar_theme = createTheme({
 	palette: {
 		primary: {
-			main: "#f5f5f5",
+			main: '#f5f5f5',
 		},
 		secondary: {
-			main: "#FF1E56",
+			main: '#FF1E56',
 		},
 	},
 });
 
-const NavBar = ({ t }) => {
+const NavBar = ({ t, handleLanguage, language }) => {
 	const [anchorElNav, setAnchorElNav] = useState(null);
 
 	const user = useSelector((state) => state.user);
 
 	let pages = {};
 
-	let translate1 = `${t("nav.1")}`;
-	let translate2 = `${t("nav.2")}`;
-	let translate3 = `${t("nav.3")}`;
-	let translate4 = `${t("nav.4")}`;
-	let translate5 = `${t("nav.5")}`;
+	let translate1 = `${t('nav.1')}`;
+	let translate2 = `${t('nav.2')}`;
+	let translate3 = `${t('nav.3')}`;
+	let translate4 = `${t('nav.4')}`;
+	let translate5 = `${t('nav.5')}`;
 
-	if (user === "") {
-		pages[translate1] = "/login";
-		pages[translate2] = "/signup";
+	if (user === '') {
+		pages[translate1] = '/login';
+		pages[translate2] = '/signup';
 	} else {
-		pages[translate3] = "/profile";
-		pages[translate4] = "/browsing";
-		pages[translate5] = "/logout";
+		pages[translate3] = '/profile';
+		pages[translate4] = '/browsing';
+		pages[translate5] = '/logout';
 	}
 
 	const handleOpenNavMenu = (event) => {
@@ -66,11 +66,11 @@ const NavBar = ({ t }) => {
 						to="/"
 						sx={{
 							display: {
-								xs: "none",
-								md: "flex",
+								xs: 'none',
+								md: 'flex',
 								marginRight: 20,
 							},
-							height: "40px",
+							height: '40px',
 						}}
 					>
 						<Logo fill="#000046" />
@@ -78,7 +78,7 @@ const NavBar = ({ t }) => {
 					<Box
 						sx={{
 							flexGrow: 1,
-							display: { xs: "flex", md: "none" },
+							display: { xs: 'flex', md: 'none' },
 						}}
 					>
 						<IconButton
@@ -95,17 +95,17 @@ const NavBar = ({ t }) => {
 							id="menu-appbar"
 							anchorEl={anchorElNav}
 							anchorOrigin={{
-								vertical: "bottom",
-								horizontal: "left",
+								vertical: 'bottom',
+								horizontal: 'left',
 							}}
 							keepMounted
 							transformOrigin={{
-								vertical: "top",
-								horizontal: "right",
+								vertical: 'top',
+								horizontal: 'right',
 							}}
 							open={Boolean(anchorElNav)}
 							onClose={handleCloseNavMenu}
-							sx={{ display: { xs: "block", md: "none" } }}
+							sx={{ display: { xs: 'block', md: 'none' } }}
 						>
 							{Object.keys(pages).map((page) => {
 								return (
@@ -124,8 +124,8 @@ const NavBar = ({ t }) => {
 					<Box
 						sx={{
 							flexGrow: 1,
-							height: "40px",
-							display: { xs: "flex", md: "none" },
+							height: '40px',
+							display: { xs: 'flex', md: 'none' },
 						}}
 						component={Link}
 						to="/"
@@ -136,7 +136,7 @@ const NavBar = ({ t }) => {
 					<Box
 						sx={{
 							flexGrow: 1,
-							display: { xs: "none", md: "flex" },
+							display: { xs: 'none', md: 'flex' },
 						}}
 					>
 						{Object.keys(pages).map((page) => {
@@ -153,6 +153,36 @@ const NavBar = ({ t }) => {
 								</Button>
 							);
 						})}
+					</Box>
+					<Box>
+						<Button
+							value={'ro'}
+							variant={language === 'ro' ? 'contained' : 'text'}
+							onClick={handleLanguage}
+						>
+							🇷🇴
+						</Button>
+						<Button
+							value={'en'}
+							variant={language === 'en' ? 'contained' : 'text'}
+							onClick={handleLanguage}
+						>
+							🇬🇧
+						</Button>
+						<Button
+							value={'fi'}
+							variant={language === 'fi' ? 'contained' : 'text'}
+							onClick={handleLanguage}
+						>
+							🇫🇮
+						</Button>
+						<Button
+							value={'hu'}
+							variant={language === 'hu' ? 'contained' : 'text'}
+							onClick={handleLanguage}
+						>
+							🇭🇺
+						</Button>
 					</Box>
 					<UserMenu user={user} t={t} />
 				</Toolbar>
